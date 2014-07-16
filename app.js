@@ -1,24 +1,38 @@
 
 window.onload = function() {
 
+
+
 	
-	var pickNum = parseInt(prompt("Enter Number"), 10);
-
-	numberFizz(pickNum);
+    starter(); // begins process
 
 
+    function starter() {
+    	var pickNum =parseInt(prompt("Enter a Number"), 10);
 
+    	if(!isNaN(pickNum)){
+  			numberFizz(pickNum);
+  		}
 
+  		else {
 
-	function numberFizz(num){
-		var node = document.createElement("P");
-		
+  			starter();
+  		}
+
+    };
+    
+
+  
+
+  	function numberFizz(num){
+		var node = document.createElement("P"); //create a P tag.
+
 		for(i = 1; i < num + 1; i++){
 
 			if((i % 3 == 0) && (i % 5 == 0)){
-				var textnode = document.createTextNode('\"fIzZbuZz!!\"' + ' ');
-				node.appendChild(textnode);
-				document.getElementById("wrapper").appendChild(node);
+				var textnode = document.createTextNode('\"fIzZbuZz!!\"' + ' '); //creates  a text element.
+				node.appendChild(textnode); // adds the text inside the paragraph.
+				document.getElementById("wrapper").appendChild(node); // adds the paragraph with text into the div wrapper.
 		
 	        }
 
@@ -44,14 +58,8 @@ window.onload = function() {
 
 
 		};// end for loop
-
-		alert('You entered the number ' + num + ' and got fizz Buzzed!');
-		
 	}; // numFizz end
-
-
-
-};
+}; //onload function end
 
 
 
